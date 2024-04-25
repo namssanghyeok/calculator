@@ -3,11 +3,11 @@ package spartar.constants;
 import spartar.exceptions.BadOperatorException;
 
 public enum OperatorType {
-    PLUS("+"),
-    MINUS("-"),
+    ADD("+"),
+    SUBTRACT("-"),
     MULTIPLY("*"),
     DIVIDE("/"),
-    MODE("%");
+    MOD("%");
 
     private final String value;
 
@@ -15,7 +15,7 @@ public enum OperatorType {
         this.value = value;
     }
 
-    public static OperatorType getOperatorTypeByValue(String v)
+    public static OperatorType fromValue(String v)
             throws BadOperatorException {
         for (OperatorType operator : OperatorType.values()) {
             if (operator.value.equals(v)) {
