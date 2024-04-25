@@ -13,31 +13,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static Calculator selectCalculator(Scanner sc, List<Calculator> calculators) {
-        while (true) {
-            try {
-                System.out.println("계산기 선택 - 1, 2 중 선택");
-                System.out.println("1: 사칙연산");
-                System.out.println("2: 원 넓이 계산");
-                int choice = Integer.parseInt(sc.nextLine().trim());
-                sc.skip("");
-                return calculators
-                        .stream()
-                        .filter(cal ->
-                                cal.supports(CalculatorType.fromType(choice))
-                        )
-                        .findAny()
-                        .orElseThrow(BadCalculatorTypeException::new);
-            } catch (Exception e) {
-                if (e instanceof NumberFormatException) {
-                    System.out.println("1과 2 중 선택해주세요.");
-                    continue;
-                }
-                System.out.println(e.getMessage());
-            }
-        }
-    }
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -56,22 +31,22 @@ public class Main {
 
         List<Calculator> calculators = List.of(arithmaticCalculator, circleCalculator);
 
-        CommandHandler commandHandler = new CommandHandler(inputParser, calculators);
+        Runner runner = new Runner(inputParser, calculators);
 
         while (true) {
-            Calculator calculator = commandHandler.selectCalculator(sc);
+            Calculator calculator = runner.selectCalculator(sc);
             Double result = calculator.calculate();
             System.out.printf("Result: %f\n", result);
             calculator.saveResult(result);
-            commandHandler.handle(calculator);
+            runner.handle(calculator);
         }
     }
 
-    public static class CommandHandler {
+    public static class Runner {
         private final InputParser inputParser;
         private final List<Calculator> calculators;
 
-        public CommandHandler(InputParser inputParser, List<Calculator> calculators) {
+        public Runner(InputParser inputParser, List<Calculator> calculators) {
             this.inputParser = inputParser;
             this.calculators = calculators;
         }
