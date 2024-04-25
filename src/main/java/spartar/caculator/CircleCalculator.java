@@ -3,15 +3,16 @@ package spartar.caculator;
 import spartar.constants.CalculatorType;
 import spartar.helper.InputParser;
 
-public class CircleCalculator implements Calculator {
+public class CircleCalculator extends AbstractCalculator {
     private final InputParser parser;
 
     public CircleCalculator(InputParser parser) {
+        super(parser);
         this.parser = parser;
     }
 
     @Override
-    public Number calculate() {
+    public Double calculate() {
         double radius = parser.parse("반지름: ", Double::parseDouble);
         return radius * radius * Math.PI;
     }
@@ -22,7 +23,7 @@ public class CircleCalculator implements Calculator {
     }
 
     @Override
-    public Number show() {
-        return null;
+    public void inquiryResult() {
+
     }
 }

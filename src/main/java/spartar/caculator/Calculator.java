@@ -1,10 +1,11 @@
 package spartar.caculator;
 
 import spartar.constants.CalculatorType;
-import spartar.constants.OperatorType;
 
 public interface Calculator {
-    Number calculate();
+    Double calculate();
     boolean supports(CalculatorType calculatorType);
-    Number show();
+    void inquiryResult();
+    void removeResult();
+    void saveResult(Double result);
 }
