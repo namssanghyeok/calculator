@@ -1,13 +1,19 @@
 package spartar.caculator;
 
 import spartar.constants.CalculatorType;
-import spartar.constants.OperatorType;
+import spartar.helper.InputParser;
 
 public class CircleCalculator implements Calculator {
+    private final InputParser parser;
+
+    public CircleCalculator(InputParser parser) {
+        this.parser = parser;
+    }
+
     @Override
     public Number calculate() {
-        // 반지름을 전달 받고, 원의 넓이를 계산하고 반환
-        return 0;
+        double radius = parser.parse("반지름: ", Double::parseDouble);
+        return radius * radius * Math.PI;
     }
 
     @Override
@@ -19,5 +25,4 @@ public class CircleCalculator implements Calculator {
     public Number show() {
         return null;
     }
-
 }

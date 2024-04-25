@@ -5,6 +5,7 @@ import spartar.caculator.Calculator;
 import spartar.caculator.CircleCalculator;
 import spartar.constants.CalculatorType;
 import spartar.exceptions.BadCalculatorTypeException;
+import spartar.helper.InputParser;
 
 import java.util.List; import java.util.Scanner;
 
@@ -53,10 +54,13 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Calculator arithmaticCalculator = new ArithmeticCalculator();
-        Calculator circleCalculator = new CircleCalculator();
-        List<Calculator> calculators = List.of(arithmaticCalculator, circleCalculator);
 
+        InputParser inputParser = new InputParser(sc);
+
+        Calculator arithmaticCalculator = new ArithmeticCalculator(inputParser);
+        Calculator circleCalculator = new CircleCalculator(inputParser);
+
+        List<Calculator> calculators = List.of(arithmaticCalculator, circleCalculator);
 
         while (true) {
             Calculator calculator = selectCalculator(sc, calculators);
