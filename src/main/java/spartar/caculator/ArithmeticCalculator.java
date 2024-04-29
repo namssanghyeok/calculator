@@ -1,12 +1,10 @@
 package spartar.caculator;
 
 import spartar.caculator.operator.Operator;
-import spartar.constants.CalculatorType;
-import spartar.constants.OperatorType;
+import spartar.caculator.operator.OperatorType;
 import spartar.helper.InputParser;
 
 import java.util.List;
-import java.util.Optional;
 
 public class ArithmeticCalculator extends AbstractCalculator {
     private final InputParser parser;

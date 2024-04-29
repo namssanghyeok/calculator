@@ -1,6 +1,5 @@
 package spartar.caculator;
 
-import spartar.constants.CalculatorType;
 import spartar.helper.InputParser;
 
 public class CircleCalculator extends AbstractCalculator {

@@ -4,8 +4,7 @@ import spartar.caculator.ArithmeticCalculator;
 import spartar.caculator.Calculator;
 import spartar.caculator.CircleCalculator;
 import spartar.caculator.operator.*;
-import spartar.constants.CalculatorType;
-import spartar.constants.CommandType;
+import spartar.caculator.CalculatorType;
 import spartar.exceptions.BadCalculatorTypeException;
 import spartar.helper.InputParser;
 
@@ -97,5 +96,20 @@ public class Main {
             }
         }
 
+    }
+
+    public enum CommandType {
+        DEFAULT,
+        EXIT,
+        INQUIRY;
+
+        public static CommandType fromString(String string) {
+            for (CommandType commandType : CommandType.values()) {
+                if (commandType.name().equals(string.toUpperCase())) {
+                    return commandType;
+                }
+            }
+            return DEFAULT;
+        }
     }
 }

@@ -1,4 +1,4 @@
-package spartar.constants;
+package spartar.caculator.operator;
 
 import spartar.exceptions.BadOperatorException;
 

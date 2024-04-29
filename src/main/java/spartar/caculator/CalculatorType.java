@@ -1,4 +1,4 @@
-package spartar.constants;
+package spartar.caculator;
 
 import spartar.exceptions.BadCalculatorTypeException;
 
