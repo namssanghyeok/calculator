@@ -2,6 +2,10 @@ package spartar.helper;
 
 import java.util.Scanner;
 
+/**
+ * 입력 공통 처리 클래스
+ * 올바르지 않은 입력이 들어온 경우 무한반복
+ */
 public class InputParser {
     private final Scanner sc;
 

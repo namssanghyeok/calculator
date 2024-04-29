@@ -2,6 +2,9 @@ package spartar.caculator;
 
 import spartar.helper.InputParser;
 
+/**
+ * 원 넓이 계산기
+ */
 public class CircleCalculator extends AbstractCalculator {
     private final InputParser parser;
 

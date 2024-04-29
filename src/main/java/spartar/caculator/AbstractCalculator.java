@@ -4,6 +4,10 @@ import spartar.helper.InputParser;
 
 import java.util.ArrayDeque;
 
+/**
+ * 공통 로직 담는 추상 클래스.
+ * 결과 저장 관련 로직 담고있음
+ */
 public abstract class AbstractCalculator implements Calculator {
     private final ArrayDeque<Double> resultStore;
     private final InputParser inputParser;

@@ -2,6 +2,8 @@ package spartar.caculator.operator;
 
 import spartar.exceptions.BadOperatorException;
 
+import java.util.Arrays;
+
 public enum OperatorType {
     ADD("+"),
     SUBTRACT("-"),
@@ -22,6 +24,8 @@ public enum OperatorType {
                 return operator;
             }
         }
-        throw new BadOperatorException();
+        throw new BadOperatorException(
+                String.join(", ", Arrays.stream(OperatorType.values()).map(value -> value.value).toList())
+        );
     }
 }

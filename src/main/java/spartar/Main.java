@@ -13,6 +13,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /*
+            프로그램에 필요한 계산기 및 연산자 생성 & 등록
+         */
         Scanner sc = new Scanner(System.in);
 
         InputParser inputParser = new InputParser(sc);
@@ -29,15 +32,20 @@ public class Main {
         Calculator circleCalculator = new CircleCalculator(inputParser);
 
         List<Calculator> calculators = List.of(arithmaticCalculator, circleCalculator);
-
+        /*
+            프로그램 실행
+         */
         Runner runner = new Runner(inputParser, calculators);
 
         while (true) {
+            // 계산기 선택
             Calculator calculator = runner.selectCalculator(sc);
             Double result = calculator.calculate();
+            // 결과 출력 & 저장
             System.out.println(result);
             calculator.saveResult(result);
-            runner.handle(calculator);
+            // 다음 동작 선택.
+            runner.chooseNextCommand(calculator);
         }
     }
 
@@ -50,7 +58,7 @@ public class Main {
             this.calculators = calculators;
         }
 
-        public void handle(Calculator currentCalculator) {
+        public void chooseNextCommand(Calculator currentCalculator) {
             CommandType command = CommandType.fromString(inputParser.parse("""
                     명령어 입력 (exit, inquiry, continue)
                     """, String::new).toUpperCase());
@@ -91,6 +99,7 @@ public class Main {
                         System.out.println("1과 2 중 선택해주세요.");
                         continue;
                     }
+                    // 에러 메시지 출력
                     System.out.println(e.getMessage());
                 }
             }
@@ -98,6 +107,7 @@ public class Main {
 
     }
 
+    // 커맨드 타입.
     public enum CommandType {
         DEFAULT,
         EXIT,
