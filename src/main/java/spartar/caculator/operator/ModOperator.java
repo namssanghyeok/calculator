@@ -1,9 +1,11 @@
 package spartar.caculator.operator;
 
 public class ModOperator implements Operator{
+    private final OperatorType supportOperatorType = OperatorType.MOD;
+
     @Override
     public boolean supports(OperatorType op) {
-        return OperatorType.MOD.equals(op);
+        return this.supportOperatorType.equals(op);
     }
 
     @Override

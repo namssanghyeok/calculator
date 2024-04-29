@@ -1,9 +1,11 @@
 package spartar.caculator.operator;
 
 public class MultiplyOperator implements Operator{
+    private final OperatorType supportOperatorType = OperatorType.MULTIPLY;
+
     @Override
     public boolean supports(OperatorType op) {
-        return OperatorType.MULTIPLY.equals(op);
+        return this.supportOperatorType.equals(op);
     }
 
     @Override

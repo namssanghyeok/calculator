@@ -1,9 +1,11 @@
 package spartar.caculator.operator;
 
 public class SubtractOperator implements Operator{
+    private final OperatorType supportOperatorType = OperatorType.SUBTRACT;
+
     @Override
     public boolean supports(OperatorType op) {
-        return OperatorType.SUBTRACT.equals(op);
+        return this.supportOperatorType.equals(op);
     }
 
     @Override

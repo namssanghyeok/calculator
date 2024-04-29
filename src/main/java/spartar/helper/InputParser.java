@@ -20,8 +20,7 @@ public class InputParser {
                     System.out.println("올바르지 않은 숫자입니다.");
                     continue;
                 }
-                System.out.println("Message: " + e.getMessage());
-                System.out.println("Cause: " + e.getCause());
+                System.out.println(e.getMessage());
             }
         }
     }

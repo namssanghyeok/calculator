@@ -35,7 +35,7 @@ public class Main {
         while (true) {
             Calculator calculator = runner.selectCalculator(sc);
             Double result = calculator.calculate();
-            System.out.printf("Result: %f\n", result);
+            System.out.println(result);
             calculator.saveResult(result);
             runner.handle(calculator);
         }

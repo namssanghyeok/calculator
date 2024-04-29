@@ -1,9 +1,11 @@
 package spartar.caculator.operator;
 
 public class DivideOperator implements Operator{
+    private final OperatorType supportOperatorType = OperatorType.DIVIDE;
+
     @Override
     public boolean supports(OperatorType op) {
-        return OperatorType.DIVIDE.equals(op);
+        return this.supportOperatorType.equals(op);
     }
 
     @Override
